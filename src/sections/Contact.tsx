@@ -174,7 +174,7 @@ export const Contact: React.FC = () => {
           
           {/* Left Side: System Telemetry Coordinates */}
           <div className="lg:col-span-5 flex flex-col gap-6 text-left">
-            <GlareCard className="p-6 md:p-8 bg-cyber-card border-white/[0.05] flex flex-col justify-between min-h-[300px]">
+            <GlareCard className="p-4 sm:p-6 md:p-8 bg-cyber-card border-white/[0.05] flex flex-col justify-between min-h-[300px]">
               <div>
                 <h3 className="text-xl font-bold text-white mb-6 font-mono tracking-widest bg-gradient-to-r from-cyber-blue to-cyber-purple bg-clip-text text-transparent">
                   AMIYA_NODE_COORDS
@@ -229,7 +229,7 @@ export const Contact: React.FC = () => {
 
           {/* Right Side: Futuristic Input Form / Terminal Console */}
           <div className="lg:col-span-7 w-full h-full">
-            <GlareCard className="p-6 md:p-8 bg-cyber-card border-white/[0.05] min-h-[400px] flex flex-col justify-between relative overflow-hidden">
+            <GlareCard className="p-4 sm:p-6 md:p-8 bg-cyber-card border-white/[0.05] min-h-[400px] flex flex-col justify-between relative overflow-hidden">
               <AnimatePresence mode="wait">
                 
                 {/* 1. Idle Form State */}

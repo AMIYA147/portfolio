@@ -110,7 +110,7 @@ export const GithubStats: React.FC = () => {
 
           {/* Right Contribution Panel */}
           <div className="lg:col-span-8">
-            <GlareCard className="p-6 md:p-8 bg-cyber-card border-white/[0.05] h-full flex flex-col justify-between text-left relative overflow-hidden">
+            <GlareCard className="p-4 sm:p-6 md:p-8 bg-cyber-card border-white/[0.05] h-full flex flex-col justify-between text-left relative overflow-hidden">
               
               <div>
                 {/* Header info */}

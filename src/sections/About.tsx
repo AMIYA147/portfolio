@@ -62,7 +62,7 @@ export const About: React.FC = () => {
         {/* Narratives Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20">
           {/* ECE Focus */}
-          <GlareCard className="p-6 h-full flex flex-col items-start text-left">
+          <GlareCard className="p-4 sm:p-6 h-full flex flex-col items-start text-left">
             <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-6 shadow-cyber-glow">
               <Cpu size={22} />
             </div>
@@ -75,7 +75,7 @@ export const About: React.FC = () => {
           </GlareCard>
 
           {/* AI Focus */}
-          <GlareCard className="p-6 h-full flex flex-col items-start text-left">
+          <GlareCard className="p-4 sm:p-6 h-full flex flex-col items-start text-left">
             <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-6 shadow-purple-glow">
               <Eye size={22} />
             </div>
@@ -88,7 +88,7 @@ export const About: React.FC = () => {
           </GlareCard>
 
           {/* Web Architect */}
-          <GlareCard className="p-6 h-full flex flex-col items-start text-left">
+          <GlareCard className="p-4 sm:p-6 h-full flex flex-col items-start text-left">
             <div className="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 mb-6 shadow-pink-glow">
               <Globe size={22} />
             </div>
@@ -101,7 +101,7 @@ export const About: React.FC = () => {
           </GlareCard>
 
           {/* Cyber Security Focus */}
-          <GlareCard className="p-6 h-full flex flex-col items-start text-left">
+          <GlareCard className="p-4 sm:p-6 h-full flex flex-col items-start text-left">
             <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 shadow-cyber-glow">
               <Shield size={22} />
             </div>
@@ -114,7 +114,7 @@ export const About: React.FC = () => {
           </GlareCard>
 
           {/* Entrepreneur */}
-          <GlareCard className="p-6 h-full flex flex-col items-start text-left">
+          <GlareCard className="p-4 sm:p-6 h-full flex flex-col items-start text-left">
             <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 shadow-md">
               <Lightbulb size={22} />
             </div>
@@ -128,7 +128,7 @@ export const About: React.FC = () => {
         </div>
 
         {/* Timeline Section */}
-        <div className="glass-panel p-8 rounded-2xl relative overflow-hidden bg-cyber-bg/20 border-white/[0.04]">
+        <div className="glass-panel p-4 sm:p-6 md:p-8 rounded-2xl relative overflow-hidden bg-cyber-bg/20 border-white/[0.04]">
           <div className="absolute inset-0 bg-gradient-to-r from-cyber-blue/5 to-transparent pointer-events-none" />
           
           <div className="flex items-center gap-2 mb-8 font-mono text-xs font-bold tracking-widest text-slate-400">

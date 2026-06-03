@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 text-white select-none flex flex-nowrap whitespace-nowrap"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 text-white select-none flex flex-wrap md:flex-nowrap md:whitespace-nowrap"
           >
             {name.split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="inline-block whitespace-nowrap mr-3.5 last:mr-0">

@@ -103,13 +103,13 @@ export const Experience: React.FC = () => {
               className="relative text-left"
             >
               {/* Timeline dot node */}
-              <div className="absolute -left-[39px] md:-left-[55px] top-1.5 w-6 h-6 md:w-8 md:h-8 rounded-full bg-cyber-bg border border-white/[0.08] flex items-center justify-center text-cyber-purple group transition-all duration-300">
+              <div className="absolute -left-[36px] md:-left-[56px] top-1.5 w-6 h-6 md:w-8 md:h-8 rounded-full bg-cyber-bg border border-white/[0.08] flex items-center justify-center text-cyber-purple group transition-all duration-300">
                 <div className="absolute inset-0 bg-cyber-purple/10 rounded-full animate-ping" style={{ animationDuration: "3s" }} />
                 {exp.icon}
               </div>
 
               {/* Card Container */}
-              <GlareCard className="p-6 md:p-8 bg-cyber-card border-white/[0.05]">
+              <GlareCard className="p-4 sm:p-6 md:p-8 bg-cyber-card border-white/[0.05]">
                 {/* Visual top border glow */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyber-purple to-transparent opacity-40" />
 

@@ -262,7 +262,7 @@ export const Skills: React.FC = () => {
 
           {/* Right Detailed Sidebar Terminal Monitor */}
           <div className="lg:col-span-5 h-full">
-            <GlareCard className="p-6 md:p-8 flex flex-col justify-between h-full min-h-[420px] bg-cyber-card border-white/[0.05]">
+            <GlareCard className="p-4 sm:p-6 md:p-8 flex flex-col justify-between h-full min-h-[420px] bg-cyber-card border-white/[0.05]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeCategory.id}

@@ -54,7 +54,7 @@ export const Achievements: React.FC = () => {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="max-w-2xl w-full"
             >
-              <GlareCard className="p-6 md:p-8 bg-cyber-card border-white/[0.05] h-full flex flex-col justify-between text-left">
+              <GlareCard className="p-4 sm:p-6 md:p-8 bg-cyber-card border-white/[0.05] h-full flex flex-col justify-between text-left">
                 <div>
                   {/* Header */}
                   <div className="flex items-center justify-between border-b border-white/[0.05] pb-4 mb-5">
