@@ -97,17 +97,6 @@ export const Skills: React.FC = () => {
       description: "Formulating statistical structures, cleansing data pipelines, analyzing structural distributions, and predicting trend analytics.",
       complexity: "86%",
     },
-    {
-      id: "cloud",
-      name: "Cloud Infra",
-      x: 50,
-      y: 12,
-      color: "#6366f1",
-      glowColor: "rgba(99, 102, 241, 0.4)",
-      skills: ["Docker Containers", "AWS (EC2, S3)", "Serverless Functions", "Nginx Proxy"],
-      description: "Packaging systems in light virtual environments, managing object nodes, and forwarding proxy server requests.",
-      complexity: "82%",
-    },
   ];
 
   const activeCategory = categories.find((cat) => cat.id === selectedCategory) || categories[0];
