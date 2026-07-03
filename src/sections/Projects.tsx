@@ -17,6 +17,10 @@ interface ProjectItem {
   demo: string;
   preview: React.ReactNode;
   status: "deployed" | "production" | "maintenance" | "upcoming";
+  statusLabel?: string;
+  demoLabel?: string;
+  tabLabels?: { overview: string; metrics: string };
+  features?: string[];
 }
 
 export const Projects: React.FC = () => {
@@ -147,52 +151,68 @@ export const Projects: React.FC = () => {
     },
     {
       id: 3,
-      title: "Local AI Chatbox",
+      title: "2nd Teacher – Local AI Instructor",
       category: "AI / Local LLMs",
-      tagline: "Fully private, browser-based AI assistant running local models via WebGPU.",
-      problem: "Sending sensitive data to remote AI APIs poses massive privacy risks and incurs substantial API subscription fees.",
-      solution: "Developed an interactive client utilizing WebGPU and WebLLM to run LLMs (e.g., Llama-3, Phi-3) locally inside the browser sandbox.",
-      impact: "Achieved 100% offline data security, sub-second initial token delivery (38+ tokens/sec), and zero operational server costs.",
-      stack: ["React", "TypeScript", "WebLLM", "WebGPU", "TailwindCSS"],
+      tagline: "Privacy-first offline AI teaching assistant powered by Ollama with Retrieval-Augmented Generation (RAG), multimodal vision support, and local document intelligence.",
+      problem: "Cloud AI assistants require internet connectivity, expose sensitive documents to third-party services, and struggle with large educational materials without retrieval.",
+      solution: "Built a fully offline AI teaching assistant using Ollama, Node.js, React, SQLite, and Retrieval-Augmented Generation (RAG). The application understands PDFs, analyzes images, maintains conversation context, and provides accurate, source-backed answers while keeping all data on the user's machine.",
+      impact: "",
+      stack: ["React", "TypeScript", "Node.js", "Express", "Ollama", "SQLite", "better-sqlite3", "PDF RAG", "nomic-embed-text"],
       github: "https://github.com/AMIYA147/local-chatbot-",
       demo: "https://google.com",
       status: "production",
+      statusLabel: "v2.0",
+      demoLabel: "LOCAL APPLICATION",
+      tabLabels: {
+        overview: "System Overview",
+        metrics: "AI Features",
+      },
+      features: [
+        "Local Ollama inference",
+        "PDF RAG with SQLite",
+        "Automatic image understanding",
+        "Fast & Reasoning modes",
+        "Source attribution",
+        "Markdown & LaTeX rendering",
+        "Conversation history",
+        "Offline-first architecture",
+      ],
       preview: (
         <div className="w-full h-full bg-[#030010] rounded-lg p-4 flex flex-col justify-between font-mono text-[10px] text-slate-400 border border-white/[0.04] overflow-hidden">
           <div className="flex items-center justify-between border-b border-white/[0.05] pb-2">
-            <span className="text-pink-400 font-bold">LOCAL_AI_CORE // OFFLINE</span>
-            <span className="text-emerald-400 font-bold font-mono animate-pulse">WEBGPU_ACTIVE</span>
+            <span className="text-pink-400 font-bold">LOCAL_AI_CORE // ONLINE</span>
+            <span className="text-emerald-400 font-bold font-mono flex items-center gap-1">
+              OLLAMA_CONNECTED <span className="text-[10px] font-sans">✓</span>
+            </span>
           </div>
           
           <div className="flex-1 flex flex-col justify-start gap-1 py-1.5 text-left text-[9px] leading-relaxed">
             {qrProgress < 30 ? (
               <>
-                <div className="text-slate-500">&gt; WebLLM::initialize()</div>
-                <div className="text-pink-400 font-bold">
-                  &gt; Loading Phi-3-mini ({qrProgress * 3}MB)
-                </div>
+                <div className="text-slate-500">&gt; sqlite3::connect(database.db)</div>
+                <div className="text-pink-400 font-bold">&gt; Indexing document chunks...</div>
                 <div className="w-full bg-white/[0.03] h-1 rounded-full overflow-hidden mt-1">
                   <div className="h-full bg-pink-500 transition-all duration-300" style={{ width: `${(qrProgress / 30) * 100}%` }} />
                 </div>
               </>
             ) : qrProgress < 65 ? (
               <>
-                <div className="text-slate-500">&gt; Model loaded successfully. [3.8GB VRAM]</div>
-                <div className="text-cyan-400">&gt; User: Optimize this SQL query...</div>
-                <div className="text-slate-500 animate-pulse">&gt; Llama-3: generating tokens...</div>
+                <div className="text-slate-500">&gt; DATABASE: SQLITE [CONNECTED]</div>
+                <div className="text-cyan-400">&gt; User: Explain Shannon Capacity...</div>
+                <div className="text-slate-500 animate-pulse">&gt; Retrieving relevant document chunks...</div>
               </>
             ) : (
               <>
-                <div className="text-slate-500">&gt; User: Optimize this SQL query...</div>
-                <div className="text-slate-300">&gt; Llama-3: Use index scan &amp; CTE [38 tk/s]</div>
-                <div className="text-emerald-400 font-bold mt-0.5 animate-pulse">&gt; Pipeline: SUCCESS (100% Offline)</div>
+                <div className="text-slate-500">&gt; User: Explain Shannon Capacity...</div>
+                <div className="text-slate-300">&gt; AI: C = B * log2(1 + SNR) [Source: PDF]</div>
+                <div className="text-emerald-400 font-bold mt-0.5 animate-pulse">&gt; Response generated successfully.</div>
               </>
             )}
           </div>
 
           <div className="flex justify-between items-center text-[7px] text-slate-500 border-t border-white/[0.03] pt-1.5">
-            <span>VRAM: 2.8GB/8.0GB</span>
-            <span>LATENCY: 12ms</span>
+            <span>MODEL: qwen3 | RAG: ACTIVE</span>
+            <span>VISION: READY | CONTEXT: 10 TURNS</span>
           </div>
         </div>
       ),
@@ -287,7 +307,7 @@ export const Projects: React.FC = () => {
                       </span>
                     ) : (
                       <span className="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold font-mono animate-pulse">
-                        V1.1
+                        {project.statusLabel || "V1.1"}
                       </span>
                     )}
                   </div>
@@ -322,7 +342,7 @@ export const Projects: React.FC = () => {
                               : "border-transparent text-slate-500 hover:text-slate-300"
                           }`}
                         >
-                          System_Overview
+                          {project.tabLabels?.overview || "System_Overview"}
                         </button>
                         <button
                           onClick={() => setActiveTab((prev) => ({ ...prev, [project.id]: "metrics" }))}
@@ -332,7 +352,7 @@ export const Projects: React.FC = () => {
                               : "border-transparent text-slate-500 hover:text-slate-300"
                           }`}
                         >
-                          Audit_Metrics
+                          {project.tabLabels?.metrics || "Audit_Metrics"}
                         </button>
                       </div>
 
@@ -372,23 +392,48 @@ export const Projects: React.FC = () => {
                               transition={{ duration: 0.2 }}
                               className="flex flex-col gap-3"
                             >
-                              <div className="flex gap-2">
-                                <TrendingUp size={14} className="text-cyber-success shrink-0 mt-0.5" />
-                                <div>
-                                  <strong className="text-slate-300 text-[10px] font-mono block">REALIZED_IMPACT:</strong>
-                                  <span className="text-slate-200 leading-relaxed font-medium">{project.impact}</span>
+                              {project.features ? (
+                                <div className="flex flex-col gap-3">
+                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 text-[10px] text-slate-300">
+                                    {project.features.map((feat, idx) => (
+                                      <div key={idx} className="flex items-center gap-1.5">
+                                        <span className="text-cyber-purple shrink-0">•</span>
+                                        <span>{feat}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                  <div>
+                                    <strong className="text-slate-300 text-[10px] font-mono block mb-1">AUDITABLE_STACK:</strong>
+                                    <div className="flex flex-wrap gap-1.5">
+                                      {project.stack.map((tech, idx) => (
+                                        <span key={idx} className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.05] text-[9px] font-mono text-slate-400">
+                                          {tech}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div>
-                                <strong className="text-slate-300 text-[10px] font-mono block mb-1">AUDITABLE_STACK:</strong>
-                                <div className="flex flex-wrap gap-1.5">
-                                  {project.stack.map((tech, idx) => (
-                                    <span key={idx} className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.05] text-[9px] font-mono text-slate-400">
-                                      {tech}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
+                              ) : (
+                                <>
+                                  <div className="flex gap-2">
+                                    <TrendingUp size={14} className="text-cyber-success shrink-0 mt-0.5" />
+                                    <div>
+                                      <strong className="text-slate-300 text-[10px] font-mono block">REALIZED_IMPACT:</strong>
+                                      <span className="text-slate-200 leading-relaxed font-medium">{project.impact}</span>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <strong className="text-slate-300 text-[10px] font-mono block mb-1">AUDITABLE_STACK:</strong>
+                                    <div className="flex flex-wrap gap-1.5">
+                                      {project.stack.map((tech, idx) => (
+                                        <span key={idx} className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.05] text-[9px] font-mono text-slate-400">
+                                          {tech}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </>
+                              )}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -445,7 +490,7 @@ export const Projects: React.FC = () => {
                       title="Demo locked - System under production"
                     >
                       <Lock size={12} className="text-slate-600 animate-pulse" />
-                      <span>DEMO_WIP</span>
+                      <span>{project.demoLabel || "DEMO_WIP"}</span>
                     </span>
                   )}
                 </div>
