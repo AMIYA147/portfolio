@@ -119,8 +119,8 @@ export const Skills: React.FC = () => {
         {/* Network Display Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Left Interactive SVG Network */}
-          <div className="lg:col-span-7 bg-[#050515]/50 border border-white/[0.05] p-6 rounded-2xl relative min-h-[400px] md:min-h-[500px] flex items-center justify-center overflow-hidden">
+          {/* Left Interactive SVG Network (Desktop) */}
+          <div className="hidden lg:flex lg:col-span-7 bg-[#050515]/50 border border-white/[0.05] p-6 rounded-2xl relative min-h-[500px] items-center justify-center overflow-hidden">
             
             {/* Absolute instruction badge */}
             <div className="absolute top-4 left-4 flex items-center gap-1.5 font-mono text-[9px] text-slate-500">
@@ -247,6 +247,42 @@ export const Skills: React.FC = () => {
                 </button>
               );
             })}
+          </div>
+
+          {/* Mobile Category Grid (Mobile only) */}
+          <div className="lg:hidden w-full flex flex-col gap-2 relative bg-[#050515]/30 border border-white/[0.04] p-4 rounded-2xl">
+            <div className="flex items-center gap-1.5 font-mono text-[9px] text-slate-500 mb-2">
+              <Activity size={10} className="text-cyber-blue animate-pulse" />
+              <span>TAP_NODES_TO_DECRYPT</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {categories.map((cat) => {
+                const isSelected = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className="relative p-[1px] rounded-xl overflow-hidden transition-all duration-300"
+                    style={{
+                      background: isSelected ? `linear-gradient(135deg, ${cat.color}, #7b61ff)` : "rgba(255,255,255,0.05)",
+                    }}
+                  >
+                    <div className="w-full h-full bg-[#050515] hover:bg-[#080820] rounded-[11px] p-2.5 flex flex-col items-center justify-center text-center">
+                      <span
+                        className="w-2 h-2 rounded-full mb-1.5"
+                        style={{
+                          backgroundColor: cat.color,
+                          boxShadow: isSelected ? `0 0 8px ${cat.color}` : "none",
+                        }}
+                      />
+                      <span className={`text-[9px] font-mono tracking-wider uppercase font-semibold transition-colors duration-300 ${isSelected ? "text-white" : "text-slate-400"}`}>
+                        {cat.name}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Right Detailed Sidebar Terminal Monitor */}

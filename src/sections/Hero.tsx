@@ -142,72 +142,74 @@ export const Hero: React.FC = () => {
           {/* Glowing central orb background */}
           <div className="absolute w-[250px] md:w-[350px] h-[250px] md:h-[350px] rounded-full bg-gradient-to-tr from-cyber-blue/10 to-cyber-purple/10 blur-[60px] animate-pulse-slow" />
 
-          {/* Main Visual Core */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative w-64 h-64 md:w-80 md:h-80 border border-white/[0.05] bg-cyber-bg/40 backdrop-blur-md rounded-full flex items-center justify-center p-6 shadow-2xl"
-          >
-            <div className="absolute inset-2 border border-dashed border-cyber-blue/20 rounded-full animate-spin" style={{ animationDuration: "120s" }} />
-            <div className="absolute inset-6 border border-white/[0.03] rounded-full animate-spin" style={{ animationDuration: "90s", animationDirection: "reverse" }} />
-            
-            {/* Core Neural / CPU logo */}
-            <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-cyber-blue/20 to-cyber-purple/20 border border-cyber-blue/30 flex items-center justify-center shadow-cyber-glow">
-              <Bot size={44} className="text-cyber-blue animate-pulse" />
-            </div>
-
-            {/* Floating badges around circle */}
-            {/* Badge 1: React */}
+          {/* Main Visual Core with scale wrapper for mobile responsiveness */}
+          <div className="scale-75 sm:scale-100 transition-transform duration-300">
             <motion.div
-              variants={badgeVariants}
-              animate="float1"
-              className="absolute -top-6 left-6 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-cyan-400"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="relative w-64 h-64 md:w-80 md:h-80 border border-white/[0.05] bg-cyber-bg/40 backdrop-blur-md rounded-full flex items-center justify-center p-6 shadow-2xl"
             >
-              <Code2 size={12} />
-              <span>React</span>
-            </motion.div>
+              <div className="absolute inset-2 border border-dashed border-cyber-blue/20 rounded-full animate-spin" style={{ animationDuration: "120s" }} />
+              <div className="absolute inset-6 border border-white/[0.03] rounded-full animate-spin" style={{ animationDuration: "90s", animationDirection: "reverse" }} />
+              
+              {/* Core Neural / CPU logo */}
+              <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-cyber-blue/20 to-cyber-purple/20 border border-cyber-blue/30 flex items-center justify-center shadow-cyber-glow">
+                <Bot size={44} className="text-cyber-blue animate-pulse" />
+              </div>
 
-            {/* Badge 2: AI / ML */}
-            <motion.div
-              variants={badgeVariants}
-              animate="float2"
-              className="absolute -right-4 top-12 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-indigo-400"
-            >
-              <Bot size={12} />
-              <span>AI/PyTorch</span>
-            </motion.div>
+              {/* Floating badges around circle */}
+              {/* Badge 1: React */}
+              <motion.div
+                variants={badgeVariants}
+                animate="float1"
+                className="absolute -top-6 left-6 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-cyan-400"
+              >
+                <Code2 size={12} />
+                <span>React</span>
+              </motion.div>
 
-            {/* Badge 3: Embedded systems */}
-            <motion.div
-              variants={badgeVariants}
-              animate="float3"
-              className="absolute -bottom-6 left-12 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-emerald-400"
-            >
-              <Cpu size={12} />
-              <span>C++/IoT</span>
-            </motion.div>
+              {/* Badge 2: AI / ML */}
+              <motion.div
+                variants={badgeVariants}
+                animate="float2"
+                className="absolute -right-4 top-12 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-indigo-400"
+              >
+                <Bot size={12} />
+                <span>AI/PyTorch</span>
+              </motion.div>
 
-            {/* Badge 4: Full Stack */}
-            <motion.div
-              variants={badgeVariants}
-              animate="float1"
-              className="absolute -left-12 top-28 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-pink-400"
-            >
-              <Database size={12} />
-              <span>Next.js</span>
-            </motion.div>
+              {/* Badge 3: Embedded systems */}
+              <motion.div
+                variants={badgeVariants}
+                animate="float3"
+                className="absolute -bottom-6 left-12 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-emerald-400"
+              >
+                <Cpu size={12} />
+                <span>C++/IoT</span>
+              </motion.div>
 
-            {/* Badge 5: Innovation */}
-            <motion.div
-              variants={badgeVariants}
-              animate="float2"
-              className="absolute right-0 bottom-16 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-amber-400"
-            >
-              <Flame size={12} />
-              <span>Founder</span>
+              {/* Badge 4: Full Stack */}
+              <motion.div
+                variants={badgeVariants}
+                animate="float1"
+                className="absolute -left-12 top-28 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-pink-400"
+              >
+                <Database size={12} />
+                <span>Next.js</span>
+              </motion.div>
+
+              {/* Badge 5: Innovation */}
+              <motion.div
+                variants={badgeVariants}
+                animate="float2"
+                className="absolute right-0 bottom-16 glass-panel px-3 py-1.5 rounded-full flex items-center gap-1.5 text-xs font-mono font-medium tracking-wide text-amber-400"
+              >
+                <Flame size={12} />
+                <span>Founder</span>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
