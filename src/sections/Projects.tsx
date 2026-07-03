@@ -147,36 +147,52 @@ export const Projects: React.FC = () => {
     },
     {
       id: 3,
-      title: "QR Offline File Transfer",
-      category: "Networking / WebRTC",
-      tagline: "Direct serverless browser-to-browser P2P local file transfer utility.",
-      problem: "Transferring heavy design blocks and files in classrooms without cloud access or web connections is tedious.",
-      solution: "Devised a system that generates dynamic data-packed QR markers establishing direct peer connections via WebRTC.",
-      impact: "Eliminated server dependencies entirely, maintaining full security on offline local bands.",
-      stack: ["JavaScript", "WebRTC", "Socket.io", "QRCodes", "CSSGlass"],
+      title: "Local AI Chatbox",
+      category: "AI / Local LLMs",
+      tagline: "Fully private, browser-based AI assistant running local models via WebGPU.",
+      problem: "Sending sensitive data to remote AI APIs poses massive privacy risks and incurs substantial API subscription fees.",
+      solution: "Developed an interactive client utilizing WebGPU and WebLLM to run LLMs (e.g., Llama-3, Phi-3) locally inside the browser sandbox.",
+      impact: "Achieved 100% offline data security, sub-second initial token delivery (38+ tokens/sec), and zero operational server costs.",
+      stack: ["React", "TypeScript", "WebLLM", "WebGPU", "TailwindCSS"],
       github: "https://github.com",
       demo: "https://google.com",
       status: "production",
       preview: (
         <div className="w-full h-full bg-[#030010] rounded-lg p-4 flex flex-col justify-between font-mono text-[10px] text-slate-400 border border-white/[0.04] overflow-hidden">
           <div className="flex items-center justify-between border-b border-white/[0.05] pb-2">
-            <span className="text-pink-400 font-bold">WEBRTC_SECURE_TUNNEL</span>
-            <span className="text-pink-400 font-bold">{qrProgress}%</span>
+            <span className="text-pink-400 font-bold">LOCAL_AI_CORE // OFFLINE</span>
+            <span className="text-emerald-400 font-bold font-mono animate-pulse">WEBGPU_ACTIVE</span>
           </div>
           
-          <div className="flex-1 flex flex-col items-center justify-center gap-2">
-            {/* Pulsing QR icon */}
-            <div className="w-16 h-16 border border-white/[0.08] p-1 bg-white/[0.02] flex flex-wrap gap-0.5 rounded shadow-cyber-glow animate-pulse">
-              {Array.from({ length: 16 }).map((_, idx) => (
-                <div key={idx} className={`w-3.5 h-3.5 rounded-sm ${(idx % 3 !== 0 && idx % 4 !== 0) ? "bg-slate-300" : "bg-transparent"}`} />
-              ))}
-            </div>
-            <div className="text-[7px] text-slate-500">P2P_LINK: SECURE_ESTABLISHED</div>
+          <div className="flex-1 flex flex-col justify-start gap-1 py-1.5 text-left text-[9px] leading-relaxed">
+            {qrProgress < 30 ? (
+              <>
+                <div className="text-slate-500">&gt; WebLLM::initialize()</div>
+                <div className="text-pink-400 font-bold">
+                  &gt; Loading Phi-3-mini ({qrProgress * 3}MB)
+                </div>
+                <div className="w-full bg-white/[0.03] h-1 rounded-full overflow-hidden mt-1">
+                  <div className="h-full bg-pink-500 transition-all duration-300" style={{ width: `${(qrProgress / 30) * 100}%` }} />
+                </div>
+              </>
+            ) : qrProgress < 65 ? (
+              <>
+                <div className="text-slate-500">&gt; Model loaded successfully. [3.8GB VRAM]</div>
+                <div className="text-cyan-400">&gt; User: Optimize this SQL query...</div>
+                <div className="text-slate-500 animate-pulse">&gt; Llama-3: generating tokens...</div>
+              </>
+            ) : (
+              <>
+                <div className="text-slate-500">&gt; User: Optimize this SQL query...</div>
+                <div className="text-slate-300">&gt; Llama-3: Use index scan &amp; CTE [38 tk/s]</div>
+                <div className="text-emerald-400 font-bold mt-0.5 animate-pulse">&gt; Pipeline: SUCCESS (100% Offline)</div>
+              </>
+            )}
           </div>
 
-          {/* Progress bar */}
-          <div className="w-full bg-white/[0.03] h-1 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-pink-400 to-purple-400 transition-all duration-300" style={{ width: `${qrProgress}%` }} />
+          <div className="flex justify-between items-center text-[7px] text-slate-500 border-t border-white/[0.03] pt-1.5">
+            <span>VRAM: 2.8GB/8.0GB</span>
+            <span>LATENCY: 12ms</span>
           </div>
         </div>
       ),
