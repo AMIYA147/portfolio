@@ -154,7 +154,7 @@ export const Projects: React.FC = () => {
       solution: "Developed an interactive client utilizing WebGPU and WebLLM to run LLMs (e.g., Llama-3, Phi-3) locally inside the browser sandbox.",
       impact: "Achieved 100% offline data security, sub-second initial token delivery (38+ tokens/sec), and zero operational server costs.",
       stack: ["React", "TypeScript", "WebLLM", "WebGPU", "TailwindCSS"],
-      github: "https://github.com",
+      github: "https://github.com/AMIYA147/local-chatbot-",
       demo: "https://google.com",
       status: "production",
       preview: (
