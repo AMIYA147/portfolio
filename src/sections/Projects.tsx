@@ -287,7 +287,7 @@ export const Projects: React.FC = () => {
                       </span>
                     ) : (
                       <span className="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold font-mono animate-pulse">
-                        UNDER PRODUCTION
+                        UNDER PRODUCTION V1.1
                       </span>
                     )}
                   </div>
